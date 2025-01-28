@@ -1,4 +1,30 @@
 <?php
+class Movie {
+    public $title;
+    public $genre;
+    public $ageRestriction;
+
+    public function __construct($title, $genre, $ageRestriction) {
+        $this->title = $title;
+        $this->genre = $genre;
+        $this->ageRestriction = $ageRestriction;
+    }
+
+    public function canWatch($viewerAge) {
+        return $viewerAge >= $this->ageRestriction;
+    }
+}
+
+$film = new Movie("Inception", "Science-Fiction", 13);
+$ageViewer = 15;
+
+if ($film->canWatch($ageViewer)) {
+    echo "Vous pouvez regarder " . $film->title;
+} else {
+    echo "Vous ne pouvez pas regarder " . $film->title;
+}
+
+
 
 /**
  * ÉNONCÉ:
